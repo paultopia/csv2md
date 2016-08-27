@@ -1,3 +1,5 @@
+Note: this is just a fork of the csv2md inlein script.  Inlein hates me, I can never make it work, so I forked it as an executable jar.
+
 # csv2md.clj
 
 Turns this:
