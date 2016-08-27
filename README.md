@@ -45,7 +45,7 @@ Verified to work on OSX.  Probably other stuff too.
 
 ## Install
 
-Just put csv2md anywhere in your $PATH.  If it isn't executable already, change that with `chmod +x csv2md.clj`
+Download csv2md from [releases](https://github.com/paultopia/csv2md/releases). Put it on your $PATH.  If it isn't executable already, change that with `chmod +x csv2md.clj`
 
 
 ## Usage
