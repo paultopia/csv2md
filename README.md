@@ -1,6 +1,6 @@
 Note: this is just a fork of the csv2md inlein script.  Inlein hates me, I can never make it work, so I forked it as an executable jar. See original at https://github.com/uvtc/csv2md
 
-# csv2md.clj
+# csv2md
 
 Turns this:
 
@@ -23,10 +23,11 @@ blue          10    curvy
 (You'll have to move that first table delimiter line down if
 the first line of your csv is intended to be a heading.)
 
+Sends to stdout by default, will need to be piped into a file to keep it.
 
 ## What is it?
 
-It's a script. It happens to be written in
+It's a small command-line executable. It happens to be written in
 [Clojure](http://clojure.org/).
 
 
@@ -35,24 +36,21 @@ It's a script. It happens to be written in
 You'll need to have already installed:
 
   * [Java](http://openjdk.java.net/) (known to work with openjdk-{7,8}-jre)
-  * [inlein](http://inlein.org/)
 
 
 ## Compatibility
 
-The author has not given even a passing thought to running this
-program on any OS other than GNU/Linux.
+Verified to work on OSX.  Probably other stuff too.
 
 
 ## Install
 
-Just put csv2md.clj anywhere in your $PATH, and make sure it's
-executable (`chmod +x csv2md.clj`).
+Just put csv2md anywhere in your $PATH.  If it isn't executable already, change that with `chmod +x csv2md.clj`
 
 
 ## Usage
 
-    csv2md.clj foo.clj > foo.md
+    csv2md foo.clj > foo.md
 
 
 ## License
@@ -60,3 +58,4 @@ executable (`chmod +x csv2md.clj`).
 GPLv3. See [COPYING.txt](COPYING.txt) for details.
 
 Copyright 2014, 2015, 2016 John Gabriele <jgabriele@fastmail.fm>
+Fork by Paul Gowder, no rights claimed.  
