@@ -1,6 +1,6 @@
-#!/usr/bin/env inlein
-
 ;; Copyright 2014, 2015, 2016 John Gabriele <jgabriele@fastmail.fm>
+;; (fork by Paul Gowder, paul.gowder@gmail.com, all copyright claims on fork
+;; renounced to the extent compatible with GPL, else GPL)
 ;;
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -15,32 +15,20 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-'{:dependencies [[org.clojure/clojure  "1.8.0"]
-                 [org.clojure/data.csv "0.1.3"]]}
+(ns csv2md.core
+  (:gen-class)
+  (:require 
+   [clojure.data.csv :as csv]
+   [clojure.string   :as str]))
 
-(require '[clojure.data.csv :as csv])
-(require '[clojure.string   :as str])
-
-(when (not= (count *command-line-args*) 1)
-  (println "Please pass exactly one arg, like so:
-
-    csv2md.clj filename.csv
-
-Pretty markdown table output will go to stdout.")
-  (System/exit 0))
-
-(defn main
+(defn -main
   []
   (let [input-file (first *command-line-args*)
         rows (csv/read-csv (slurp input-file))
-        ;;_ (println rows)
         inverted-rows (apply map vector rows)
-        ;;_ (println inverted-rows)
         num-chars (for [r inverted-rows]
                     (map count r))
-        ;;_ (println num-chars)
         max-col-sizes (map (fn [c] (apply max c)) num-chars)
-        ;;_ (println max-col-sizes)
         header (str/join "  " (for [n max-col-sizes]
                                 (str/join (repeat (+ n 2) "-"))))]
     (println header)
@@ -51,5 +39,3 @@ Pretty markdown table output will go to stdout.")
         (println (str/join "  " padded))))
     (println header)))
 
-;; ------------------------
-(main)
