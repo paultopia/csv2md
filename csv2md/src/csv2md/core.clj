@@ -22,9 +22,8 @@
    [clojure.string   :as str]))
 
 (defn -main
-  []
-  (let [input-file (first *command-line-args*)
-        rows (csv/read-csv (slurp input-file))
+  [infile]
+  (let [rows (csv/read-csv (slurp infile))
         inverted-rows (apply map vector rows)
         num-chars (for [r inverted-rows]
                     (map count r))
