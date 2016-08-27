@@ -23,7 +23,7 @@ blue          10    curvy
 (You'll have to move that first table delimiter line down if
 the first line of your csv is intended to be a heading.)
 
-Sends to stdout by default, will need to be piped into a file to keep it.
+Sends to stdout by default, will need to be redirected into a file to keep it.
 
 ## What is it?
 
@@ -50,7 +50,7 @@ Just put csv2md anywhere in your $PATH.  If it isn't executable already, change 
 
 ## Usage
 
-    csv2md foo.clj > foo.md
+    csv2md foo.csv > foo.md
 
 
 ## License
